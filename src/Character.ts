@@ -30,12 +30,20 @@ export default class Character implements Fighter {
   receiveDamage(attackPoints: number): number {
     const damage = attackPoints - this.defense;
     const lifePointsAfterAttack = this.lifePoints - damage;
+    // console.log('Dano desse ataque', damage);
+
     if (damage > 0 && lifePointsAfterAttack > 0) {
+      this._lifePoints = lifePointsAfterAttack;
+      // console.log('Primeira opção', lifePointsAfterAttack);      
       return lifePointsAfterAttack;
     } 
     if (damage <= 0 && lifePointsAfterAttack > 0) {
+      this._lifePoints = this.lifePoints - 1;
+      // console.log('Segunda opção', this.lifePoints - 1);
       return this.lifePoints - 1;
     }
+    this._lifePoints = -1;
+    // console.log('Terceira opção', -1);
     return -1;
   }
 
