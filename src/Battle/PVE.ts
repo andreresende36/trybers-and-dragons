@@ -1,6 +1,4 @@
-import Character from '../Character';
 import Fighter, { SimpleFighter } from '../Fighter';
-import Monster from '../Monster';
 import Battle from './Battle';
 
 export default class PVE extends Battle {
