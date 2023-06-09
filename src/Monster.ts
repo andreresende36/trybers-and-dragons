@@ -1,15 +1,13 @@
 import Fighter, { SimpleFighter } from './Fighter';
 
 export default class Monster implements SimpleFighter {
-  private _lifePoints = 85;
-  private _strength = 63;
+  constructor(private _lifePoints = 85, private _strength = 63) {
+    this._lifePoints = _lifePoints;
+    this._strength = _strength;
+  }
 
   receiveDamage(attackPoints: number): number {
     const lifePointsAfterAttack = this.lifePoints - attackPoints;
-    console.log('this.lifePoints', this.lifePoints);
-    console.log('attackPoints', attackPoints);
-    console.log('lifePointsAfterAttack', lifePointsAfterAttack);
-    
     if (lifePointsAfterAttack <= 0) {
       this._lifePoints = -1;
       return -1;
